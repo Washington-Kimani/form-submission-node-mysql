@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" size="32" href={{favicon}}>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{{title}}</title>
+</head>
+<body>
+<div class="w-full h-screen px-4 flex flex-col gap-3 items-center justify-start bg-gradient-to-r from-violet-500 via-fuchsia-500 to-blue-400">
+    <h1 class="text-3xl font-bold mb-6">List of People</h1>
+
+    <div class="flex items-center justify-center gap-4">
+        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+           href="/">
+            Home
+        </a>
+        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                href="/create">
+            Create
+        </a>
+    </div>
+
+    <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+        <thead class="bg-gray-200 text-gray-700">
+        <tr>
+            <th class="py-3 px-6 text-left">No.</th>
+            <th class="py-3 px-6 text-left">Name</th>
+            <th class="py-3 px-6 text-left">Email</th>
+            <th class="py-3 px-6 text-left">Choice</th>
+            <th class="py-3 px-6 text-left">Actions</th>
+        </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+        {{#each people}}
+            <tr>
+                <td class="py-4 px-6">{{@index}}</td> <!-- Index starts from 0 -->
+                <td class="py-4 px-6">{{name}}</td>
+                <td class="py-4 px-6">{{email}}</td>
+                <td class="py-4 px-6">{{choice}}</td>
+                <td class="py-4 px-6">
+                    <form action="/delete/{{this.id}}" method="POST">
+                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" size="32" href={{favicon}}>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{{title}}</title>
+</head>
+<body>
+<div class="w-full h-screen flex flex-col gap-3 items-center justify-center bg-gradient-to-r from-violet-500 via-fuchsia-500 to-blue-400">
+    <!-- form.ejs -->
+    <h1 class="font-bold text-lg">Create a new Person:</h1>
+    <form class="max-w-md mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="/submit" method="POST">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                Name:
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                   id="name" name="name" type="text" placeholder="Enter your name" required>
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                Email:
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                   id="email" name="email" type="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2">
+                Choose an option:
+            </label>
+
+            <div class="mt-2">
+                <label class="inline-flex items-center">
+                    <input type="radio" class="form-radio text-blue-500" name="choice" value="option1">
+                    <span class="ml-2">Option 1</span>
+                </label>
+            </div>
+
+            <div class="mt-2">
+                <label class="inline-flex items-center">
+                    <input type="radio" class="form-radio text-blue-500" name="choice" value="option2">
+                    <span class="ml-2">Option 2</span>
+                </label>
+            </div>
+
+            <div class="mt-2">
+                <label class="inline-flex items-center">
+                    <input type="radio" class="form-radio text-blue-500" name="choice" value="option3">
+                    <span class="ml-2">Option 3</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-center gap-4">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="submit">
+                Submit
+            </button>
+            <a class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    href="/">
+                Home
+            </a>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>
